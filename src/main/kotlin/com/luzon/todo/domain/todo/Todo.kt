@@ -8,9 +8,15 @@ import javax.persistence.Id
 @Entity
 data class Todo (
         @Id @GeneratedValue
-        val id: TodoId,
-        val message: String,
+        var id: TodoId,
+        var message: String,
         val createdDate: LocalDateTime = LocalDateTime.now(),
-        val updatedDate: LocalDateTime = LocalDateTime.now(),
-        val isDone: Boolean = false
-)
+        var updatedDate: LocalDateTime = LocalDateTime.now(),
+        var isDone: Boolean = false
+) {
+
+    fun done(): Todo {
+        this.isDone = true
+        return this
+    }
+}
