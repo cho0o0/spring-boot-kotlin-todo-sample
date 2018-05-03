@@ -1,3 +1,5 @@
 package com.luzon.todo.domain.todo
 
-typealias TodoId = Long
+import com.luzon.todo.infrastructure.Id
+
+typealias TodoId = Id

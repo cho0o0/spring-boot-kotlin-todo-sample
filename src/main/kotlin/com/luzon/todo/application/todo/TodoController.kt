@@ -1,26 +1,22 @@
 package com.luzon.todo.application.todo
 
-import com.luzon.todo.domain.todo.ITodoRepository
 import com.luzon.todo.domain.todo.Todo
 import com.luzon.todo.domain.todo.TodoId
 import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/todos")
-class CustomerController(private val repository: ITodoRepository) {
+class CustomerController(private val todoAppService: TodoAppService) {
 
     @PostMapping("/")
-    fun create(@RequestBody todo: Todo): Todo = repository.save(todo)
+    fun create(@RequestBody todoDto: TodoDTO): TodoDTO = todoAppService.create(todoDto)
 
     @GetMapping("/")
-    fun findAll(): List<Todo> = repository.findAll()
+    fun findAll(): List<TodoDTO> = todoAppService.findAllTodos()
 
     @GetMapping("/{id}")
-    fun findByLastName(@PathVariable id: TodoId) : Todo? = repository.findById(id).orElse(null)
+    fun findById(@PathVariable id: TodoId) : TodoDTO? = todoAppService.findByTodoId(id)
 
     @PatchMapping("/{id}/done")
-    fun done(@PathVariable id: TodoId) : Todo? {
-        val todo = repository.findById(id)
-        return todo.map({ it.done() }).orElse(null)
-    }
+    fun done(@PathVariable id: TodoId) : TodoDTO? = todoAppService.completeTodoById(id)
 }
