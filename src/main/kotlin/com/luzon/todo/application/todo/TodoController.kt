@@ -1,6 +1,5 @@
 package com.luzon.todo.application.todo
 
-import com.luzon.todo.domain.todo.Todo
 import com.luzon.todo.domain.todo.TodoId
 import org.springframework.web.bind.annotation.*
 
@@ -15,8 +14,8 @@ class CustomerController(private val todoAppService: TodoAppService) {
     fun findAll(): List<TodoDTO> = todoAppService.findAllTodos()
 
     @GetMapping("/{id}")
-    fun findById(@PathVariable id: TodoId) : TodoDTO? = todoAppService.findByTodoId(id)
+    fun findById(@PathVariable id: TodoId): TodoDTO? = todoAppService.findByTodoId(id)
 
     @PatchMapping("/{id}/done")
-    fun done(@PathVariable id: TodoId) : TodoDTO? = todoAppService.completeTodoById(id)
+    fun done(@PathVariable id: TodoId): TodoDTO? = todoAppService.completeTodoById(id)
 }

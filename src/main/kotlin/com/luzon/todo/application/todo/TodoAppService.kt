@@ -5,8 +5,10 @@ import com.luzon.todo.domain.todo.Todo
 import com.luzon.todo.domain.todo.TodoId
 import com.luzon.todo.domain.todo.TodoSpecification
 import com.luzon.todo.infrastructure.IIdGeneratorService
+import org.springframework.stereotype.Service
 
-class TodoAppService (
+@Service
+class TodoAppService(
         private val repository: ITodoRepository,
         private val idGeneratorService: IIdGeneratorService,
         private val todoSpecification: TodoSpecification
@@ -28,7 +30,7 @@ class TodoAppService (
     fun completeTodoById(todoId: TodoId): TodoDTO? {
         return repository.findOne(todoSpecification.id(todoId))
                 .map({ it.done() })
-                .map({todo -> repository.save(todo)})
+                .map({ todo -> repository.save(todo) })
                 .map(this::convertToTodoDTO)
                 .orElse(null)
     }
@@ -39,7 +41,7 @@ class TodoAppService (
 
     private fun convertToTodoDTO(todo: Todo): TodoDTO {
         return TodoDTO(
-            todo.id, todo.message, todo.createdDate, todo.updatedDate, todo.isDone
+                todo.id, todo.message, todo.createdDate, todo.updatedDate, todo.isDone
         )
     }
 

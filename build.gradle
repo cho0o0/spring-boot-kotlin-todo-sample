@@ -1,6 +1,6 @@
 buildscript {
 	ext {
-		kotlinVersion = '1.2.41-1'
+		kotlinVersion = '1.2.40'
 		springBootVersion = '2.0.1.RELEASE'
 	}
 	repositories {
@@ -48,7 +48,7 @@ dependencies {
     compile("com.h2database:h2")
     compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     compile("org.jetbrains.kotlin:kotlin-reflect")
-	compile("com.fasterxml.uuid:java-uuid-generator")
+	compile("com.fasterxml.uuid:java-uuid-generator:3.1.5")
     compile("com.fasterxml.jackson.module:jackson-module-kotlin")
     testCompile("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.junit.jupiter:junit-jupiter-api")
