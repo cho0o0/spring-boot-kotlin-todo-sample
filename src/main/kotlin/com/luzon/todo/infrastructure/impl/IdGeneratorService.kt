@@ -10,7 +10,5 @@ import org.springframework.stereotype.Service
 class IdGeneratorService : IIdGeneratorService {
     private val generator: TimeBasedGenerator = Generators.timeBasedGenerator()
 
-    override fun generate(): Id {
-        return generator.generate().toString()
-    }
+    override fun generate(): Id = generator.generate().toString()
 }
