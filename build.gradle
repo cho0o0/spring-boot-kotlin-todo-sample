@@ -1,17 +1,17 @@
 buildscript {
-	ext {
-		kotlinVersion = '1.2.40'
-		springBootVersion = '2.0.1.RELEASE'
-	}
-	repositories {
-		mavenCentral()
-	}
-	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-		classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}")
-		classpath("org.jetbrains.kotlin:kotlin-allopen:${kotlinVersion}")
-		classpath ("org.jetbrains.kotlin:kotlin-noarg:$kotlinVersion")
-	}
+    ext {
+        kotlinVersion = '1.2.40'
+        springBootVersion = '2.0.2.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}")
+        classpath("org.jetbrains.kotlin:kotlin-allopen:${kotlinVersion}")
+        classpath("org.jetbrains.kotlin:kotlin-noarg:$kotlinVersion")
+    }
 }
 
 apply plugin: 'kotlin'
@@ -25,20 +25,20 @@ group = 'com.luzon'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 compileKotlin {
-	kotlinOptions {
-		freeCompilerArgs = ["-Xjsr305=strict"]
-		jvmTarget = "1.8"
-	}
+    kotlinOptions {
+        freeCompilerArgs = ["-Xjsr305=strict"]
+        jvmTarget = "1.8"
+    }
 }
 compileTestKotlin {
-	kotlinOptions {
-		freeCompilerArgs = ["-Xjsr305=strict"]
-		jvmTarget = "1.8"
-	}
+    kotlinOptions {
+        freeCompilerArgs = ["-Xjsr305=strict"]
+        jvmTarget = "1.8"
+    }
 }
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 
@@ -48,8 +48,11 @@ dependencies {
     compile("com.h2database:h2")
     compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     compile("org.jetbrains.kotlin:kotlin-reflect")
-	compile("com.fasterxml.uuid:java-uuid-generator:3.1.5")
+    compile("com.fasterxml.uuid:java-uuid-generator:3.1.5")
     compile("com.fasterxml.jackson.module:jackson-module-kotlin")
+    compile("com.graphql-java:graphql-spring-boot-starter:4.2.0")
+    compile("com.graphql-java:graphiql-spring-boot-starter:4.2.0")
+    compile("com.graphql-java:voyager-spring-boot-starter:4.2.0")
     testCompile("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.junit.jupiter:junit-jupiter-api")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
