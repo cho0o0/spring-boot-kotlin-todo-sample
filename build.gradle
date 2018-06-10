@@ -2,6 +2,7 @@ buildscript {
     ext {
         kotlinVersion = '1.2.41'
         springBootVersion = '2.0.2.RELEASE'
+        graphqlVersion = '4.2.0'
     }
     repositories {
         mavenCentral()
@@ -50,10 +51,10 @@ dependencies {
     compile("org.jetbrains.kotlin:kotlin-reflect")
     compile("com.fasterxml.uuid:java-uuid-generator:3.1.5")
     compile("com.fasterxml.jackson.module:jackson-module-kotlin")
-    compile("com.graphql-java:graphql-spring-boot-starter:4.2.0")
-    compile("com.graphql-java:graphiql-spring-boot-starter:4.2.0")
-    compile("com.graphql-java:voyager-spring-boot-starter:4.2.0")
-    compile("com.graphql-java:graphql-java-tools:4.2.0")
+    compile("com.graphql-java:graphql-spring-boot-starter:$graphqlVersion")
+    compile("com.graphql-java:graphiql-spring-boot-starter:$graphqlVersion")
+    compile("com.graphql-java:voyager-spring-boot-starter:$graphqlVersion")
+    compile("com.graphql-java:graphql-java-tools:5.1.0")
     testCompile("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.junit.jupiter:junit-jupiter-api")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
