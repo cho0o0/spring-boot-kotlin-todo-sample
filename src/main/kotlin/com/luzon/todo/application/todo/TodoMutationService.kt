@@ -21,7 +21,7 @@ class TodoMutationServiceService(
                     .findAny()
                     .get()
 
-    fun completeTodoById(todoId: TodoId): TodoDTO? = repository.findOne(specification.id(todoId))
+    fun completeTodoById(todoId: String): TodoDTO? = repository.findOne(specification.id(TodoId(todoId)))
             .map { it.done() }
             .map { todo -> repository.save(todo) }
             .map(converter::convertToTodoDTO)

@@ -15,7 +15,7 @@ class TodoQueryService(
 
     fun version() = "0.0.1"
 
-    fun todo(todoId: TodoId): TodoDTO = repository.findOne(specification.id(todoId))
+    fun todo(todoId: String): TodoDTO = repository.findOne(specification.id(TodoId(todoId)))
             .map(converter::convertToTodoDTO)
             .orElse(null)
 
