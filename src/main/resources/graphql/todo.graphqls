@@ -1,0 +1,17 @@
+type Query {
+    # The API Version
+    version: String!
+}
+
+type Todo {
+    id: ID!,
+    message: String!,
+    createdDate: LocalDateTime!,
+    updatedDate: LocalDateTime!,
+    isDone: Boolean!
+}
+
+extend type Query {
+    todo(id: ID!): Todo
+    todos: [Todo]
+}
