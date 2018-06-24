@@ -24,6 +24,7 @@ data class Todo(
     var isDone: Boolean = false
 
     fun done(): Todo {
+        println("a")
         this.isDone = true
         return this
     }
