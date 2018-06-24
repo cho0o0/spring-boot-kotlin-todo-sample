@@ -2,15 +2,15 @@ package com.luzon.todo.domain.todo
 
 import java.time.LocalDateTime
 import javax.persistence.Column
+import javax.persistence.EmbeddedId
 import javax.persistence.Entity
-import javax.persistence.Id
 import javax.persistence.Table
 import javax.validation.constraints.NotEmpty
 
 @Entity
 @Table(name = "todo")
 data class Todo(
-        @Id @NotEmpty @Column(name = "id") val id: TodoId,
+        @EmbeddedId @NotEmpty val id: TodoId,
         @Column(name = "message") var message: String
 ) {
 
